@@ -10,6 +10,10 @@ Solusi ringkas dan mudah untuk problem yang dikemukakan oleh *hanadastore* dalam
 Berkas kode program ditulis dalam bahasa C++ yang disisipi komentar dan penjelasan yang panjang mengenai program tersebut. Diharapkan kode program dapat dibaca dan dimengerti dengan baik oleh programmer dari tingkat pemula hingga mahir. 
 
 
+## Diskusi
+Diskusi bisa dilanjutkan di [thread kaskus yang bersangkutan][thread]
+
+
 ## Sekilas Algoritma
 Pada dasarnya, program ini menerima masukan berupa berkas data berformat JPG (*.jpg) dan menghasilkan keluaran yang berupa berkas data berformat JPG juga.
 Tiap-tiap data pixel dari gambar masukan akan diurut berdasarkan *value/brightness* dalam *colorspace* HSV/HSB atau berdasarkan *lightness* dalam colorspace HSL.
