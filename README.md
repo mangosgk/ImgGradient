@@ -21,6 +21,7 @@ Tiap-tiap data pixel dari gambar masukan akan diurut berdasarkan *value/brightne
 Tiap-tiap data pixel yang dibuka dari sebuah file JPG berada pada *colorspace* [RGB][RGB-Colorspace]. Data pixel ini dikonversi kedalam format [HSL atau HSV][HSL-and-HSV-Colorspaces]. 
 
 ![HSL HSV colorspaces](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Hsl-hsv_models.svg/400px-Hsl-hsv_models.svg.png "HSL HSV colorspace. Sumber: Wikipedia")
+
 *Sumber: Wikipedia*
 
 
