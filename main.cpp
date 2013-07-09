@@ -91,8 +91,8 @@ Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
     //
     // Movement example (5 x 5) pixels:
     //
-    // Empty          0 step        1 step RIGHT    1 step DOWN    2 steps LEFT   2 steps UP     3 steps RIGHT
-    // pixels         (start)       (step + 1)                     (step + 1)                    (step + 1)
+    // Empty          0 step         1 step RIGHT   1 step DOWN    2 steps LEFT   2 steps UP     3 steps RIGHT
+    // pixels         (step = 0)     (step = 1)     (step = 1)     (step = 2)     (step = 2)     (step = 3)
     // . . . . .      . . . . .      . . . . .      . . . . .      . . . . .      . . . . .      . . . . .
     // . . . . .      . . . . .      . . . . .      . . . . .      . . . . .      . 6 . . .      . 6 7 8 9
     // . . . . .  ->  . . 0 . .  ->  . . 0 1 .  ->  . . 0 1 .  ->  . . 0 1 .  ->  . 5 0 1 .  ->  . 5 0 1 .  ->  and so on..

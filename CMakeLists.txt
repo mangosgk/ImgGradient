@@ -4,6 +4,11 @@ cmake_minimum_required(VERSION 2.8)
 file(GLOB SOURCES *.cpp)
 file(GLOB HEADERS *.h)
 
+file(GLOB JPGD_SOURCES thirdparty/jpgd/*.cpp)
+file(GLOB JPGD_HEADERS thirdparty/jpgd/*.h)
+
+include_directories("${CMAKE_CURRENT_SOURCE_DIR}/thirdparty")
+
 option(BUILD_DOCS "BUILD_DOCS" OFF)
 
 # Copy image'data into data build directory.
@@ -32,5 +37,5 @@ if(DOXYGEN_FOUND AND BUILD_DOCS MATCHES ON)
 endif(DOXYGEN_FOUND AND BUILD_DOCS MATCHES ON)
 
 
-add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS})
+add_executable(${PROJECT_NAME} ${SOURCES} ${HEADERS} ${JPGD_SOURCES} ${JPGD_HEADERS})
 

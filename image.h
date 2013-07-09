@@ -4,8 +4,8 @@
 #include <vector>
 #include <string>
 
-#include "jpgd.h"
-#include "jpge.h"
+#include <jpgd/jpgd.h>
+#include <jpgd/jpge.h>
 #include "rgbpixel.h"
 
 /**
