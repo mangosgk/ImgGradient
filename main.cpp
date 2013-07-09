@@ -46,10 +46,10 @@ int main( int argc, char* argv[] )
     // Exit program if the parameter is not valid.
     std::vector< RGBPixel* >* flatPixels = flatten( im );
     if( std::string( argv[ 3 ] ).compare( "lightness" ) )  {
-        sort( flatPixels->begin(), flatPixels->end(), lightnessSorter );
+        std::sort( flatPixels->begin(), flatPixels->end(), lightnessSorter );
     }
     else if( std::string( argv[ 3 ] ).compare( "value" ) ) {
-        sort( flatPixels->begin(), flatPixels->end(), valueSorter );
+        std::sort( flatPixels->begin(), flatPixels->end(), valueSorter );
     }
     else {
         std::cout << "Unknown sorting parameter: " << argv[ 3 ] << std::endl;
