@@ -30,9 +30,11 @@ Konversi dari RGB ke HSL dan HSV adalah sebagai berikut:
 Dimana M adalah komponen RGB dengan nilai tertinggi dan m adalah komponen RGB dengan nilai terendah.
     
 *Lightness* didefinisikan sebagai berikut:
+   
     L = 1/2 (M + m) 
 
 *Value* didefinisikan sebagai berikut:
+
     V = M
     
 
@@ -42,7 +44,7 @@ Dimana M adalah komponen RGB dengan nilai tertinggi dan m adalah komponen RGB de
 Proyek program dikompilasi dengan menggunakan *build system* CMake yang bisa diunduh disini: http://cmake.org/cmake/resources/software.html .
 CMake mendukung berbagai macam *compiler* dan IDE.
 
-# Windows
+### Windows
 
 Cara menggunakan CMake bisa dilihat disini: http://www.cmake.org/cmake/help/runningcmake.html . Setelah source code diunduh dan diekstrak.
 
@@ -56,7 +58,7 @@ Cara menggunakan CMake bisa dilihat disini: http://www.cmake.org/cmake/help/runn
 8. Buka direktori *build\". Disana ada file proyek untuk IDE yang dipilih pada *step* 5. Buka file tersebut.
 9. *Compile* dengan IDE yang telah dipilih.
 
-# Linux/Mac OS
+### Linux/Mac OS
 
 Setelah source code diunduh dan diekstrak:
 
@@ -76,11 +78,26 @@ Contoh pada windows (dijalankan pada direktori dimana hasil program yang telah d
 
     ImgGradient data/cat.jpg data/cat-out.jpg lightness
 
-Contoh pada linux (dijalankan pada direktorim dimana hasil program yang telah dikompilasi berada):
+Contoh pada linux (dijalankan pada direktori dimana hasil program yang telah dikompilasi berada):
 
     ./ImgGradient data/cat.jpg data/cat-out.jpg lightness
 
 Akan menghasilkan berkas keluaran cat-out.jpg dalam direktori *data*. Gambar keluaran berupa gambar yang data pixelnya telah diurutkan berdasarkan *lightness*. Untuk mengurutkan data pixel berdasarkan *value*, ganti parameter *lightness* dengan *value*.
+
+
+## Dokumentasi
+
+Dokumentasi dapat dibuat dengan menggunakan [doxygen](http://www.stack.nl/~dimitri/doxygen/). Instalasi pada setiap sistem operasi berbeda, oleh karena itu ikuti petunjuk masing-masing sistem operasi. Apabila doxygen tersedia, dokumentasi dapat dibuat dengan mencentang pilihan BUILD_DOCS pada CMake atau pada linux:
+
+    cmake -DBUILD_DOCS=ON ..
+
+sebagai ganti dari 
+
+    cmake ..
+
+pada perintah kompilasi di linux.
+
+Setelah proses kompilasi, dokumentasi akan berada dalam direktori *docs/*. Ini berlaku dalam sistem operasi Windows, Linux, dan Mac OS.
 
 
 ## Lisensi
