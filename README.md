@@ -21,6 +21,8 @@ Tiap-tiap data pixel dari gambar masukan akan diurut berdasarkan *value/brightne
 Tiap-tiap data pixel yang dibuka dari sebuah file JPG berada pada *colorspace* [RGB][RGB-Colorspace]. Data pixel ini dikonversi kedalam format [HSL atau HSV][HSL-and-HSV-Colorspaces]. 
 
 ![HSL HSV colorspaces](https://upload.wikimedia.org/wikipedia/commons/thumb/a/a0/Hsl-hsv_models.svg/400px-Hsl-hsv_models.svg.png "HSL HSV colorspace. Sumber: Wikipedia")
+*Sumber: Wikipedia*
+
 
 Seperti yang bisa dilihat pada gambar diatas, komponen L (*lightness*) pada HSL bergerak dari warna tergelap (hitam) ke warna paling terang (putih) sedangkan komponen V (*value* atau *brightness*) pada HSV/HSB bergerak dari warna tergelap (hitam) ke sebuah warna tertentu yang bergantung pada derajat silinder. Warna putih pada *colorspace* HSV berada pada tengah silinder.
 
@@ -40,7 +42,27 @@ Dimana M adalah komponen RGB dengan nilai tertinggi dan m adalah komponen RGB de
 *Value* didefinisikan sebagai berikut:
 
     V = M
-    
+
+### Contoh Masukan/Keluaran
+
+**Masukan**
+![sample-input-1](http://imageshack.us/a/img833/3710/2xg.png)
+
+**Keluaran (pengurutan berdasarkan *value*)**
+![sample-output-1](http://imageshack.us/a/img32/7527/0bp4.jpg)
+
+**Keluaran (pengurutan berdasarkan *lightness)**
+![sample-output-1](http://img819.imageshack.us/img819/9420/utvf.jpg)    
+
+
+![sample-input-2](http://imageshack.us/a/img208/4197/ku8e.jpg)
+
+**Keluaran (pengurutan berdasarkan *value*)**
+![sample-output-2](http://imageshack.us/a/img20/1944/kw8x.jpg)
+
+**Keluaran (pengurutan berdasarkan *lightness)**
+![sample-output-2](http://imageshack.us/a/img51/288/qj8a.jpg)    
+
 
 ## Kompilasi
 
@@ -59,7 +81,7 @@ Cara menggunakan CMake bisa dilihat disini: http://www.cmake.org/cmake/help/runn
 5. Pilih kompiler yang tersedia. Gunakan *default compiler* yang disarankan cmake.
 6. Klik *Configure* sekali lagi.
 7. Klik *Generate*.
-8. Buka direktori *build\". Disana ada file proyek untuk IDE yang dipilih pada *step* 5. Buka file tersebut.
+8. Buka direktori *build\"*. Disana ada file proyek untuk IDE yang dipilih pada *step* 5. Buka file tersebut.
 9. *Compile* dengan IDE yang telah dipilih.
 
 ### Linux/Mac OS
