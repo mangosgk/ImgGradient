@@ -34,9 +34,9 @@ Image::Image( uint8 *im, int width, int height ) :
     for( int y = 0 ; y < height ; y++ ) {
         mData->push_back( std::vector< RGBPixel* >() );
         for( int x = 0 ; x < width ; x++ ) {
-            RGBPixel* px = new RGBPixel( (int) im[ i   ],
-                                         (int) im[ i+1 ],
-                                         (int) im[ i+2 ] );
+            RGBPixel* px = new RGBPixel( im[ i   ],
+                                         im[ i+1 ],
+                                         im[ i+2 ] );
             mData->at( y ).push_back( px );
             i += 3;
         }

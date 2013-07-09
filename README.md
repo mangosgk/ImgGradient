@@ -89,12 +89,12 @@ Cara menggunakan CMake bisa dilihat disini: http://www.cmake.org/cmake/help/runn
 
 1. Jalankan program cmake (cmake harus diinstall terlebih dahulu).
 2. *"Where is the source code"* : masukkan direktori dimana source code telah diekstrak.
-3. *"Where to build the binaries"*: masukkan direktori dimana kode sumber telah diekstrak. Bubuhi "build\". Misal C:\foo\bar\build dimana C:\foo\bar\ adalah direktori kode sumber.
+3. *"Where to build the binaries"*: masukkan direktori dimana kode sumber telah diekstrak. Bubuhi "build/". Misal C:/foo/bar/build dimana C:/foo/bar/ adalah direktori kode sumber.
 4. Klik *Configure*.
 5. Pilih kompiler yang tersedia. Gunakan *default compiler* yang disarankan cmake.
 6. Klik *Configure* sekali lagi.
 7. Klik *Generate*.
-8. Buka direktori *build\"*. Disana ada file proyek untuk IDE yang dipilih pada *step* 5. Buka file tersebut.
+8. Buka direktori *build/"*. Disana ada file proyek untuk IDE yang dipilih pada *step* 5. Buka file tersebut.
 9. *Compile* dengan IDE yang telah dipilih.
 
 ### Linux/Mac OS

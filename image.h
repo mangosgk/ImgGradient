@@ -14,11 +14,6 @@
 typedef std::vector< std::vector< RGBPixel* > > RGBPixelData;
 
 /**
- * @brief uint8 is another alias for unsigned char.
- */
-typedef unsigned char uint8;
-
-/**
  * @brief The Image class represents an image which contains pixel data.
  * @author Mango
  * @date June 2013

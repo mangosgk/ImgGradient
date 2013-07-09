@@ -14,7 +14,7 @@ RGBPixel::RGBPixel() :
  * @param [in]  g   The G color component (0-255).
  * @param [in]  b   The B color component (0-255).
  */
-RGBPixel::RGBPixel(int r, int g, int b) :
+RGBPixel::RGBPixel(uint8 r, uint8 g, uint8 b) :
     mR( r ), mG( g ), mB( b )
 {
 }
@@ -25,7 +25,7 @@ RGBPixel::RGBPixel(int r, int g, int b) :
  * @param [in]  g   The G color component (0-255).
  * @param [in]  b   The B color component (0-255).
  */
-void RGBPixel::setRGB( int r, int g, int b )
+void RGBPixel::setRGB( uint8 r, uint8 g, uint8 b )
 {
     mR = r;
     mG = g;
@@ -74,7 +74,7 @@ double RGBPixel::value()
  * @brief Getter for the R color component (0-255).
  * @return
  */
-int RGBPixel::r()
+uint8 RGBPixel::r()
 {
     return mR;
 }
@@ -83,7 +83,7 @@ int RGBPixel::r()
  * @brief Getter for the G color component (0-255).
  * @return
  */
-int RGBPixel::g()
+uint8 RGBPixel::g()
 {
     return mG;
 }
@@ -92,7 +92,7 @@ int RGBPixel::g()
  * @brief Getter for the B color component (0-255).
  * @return
  */
-int RGBPixel::b()
+uint8 RGBPixel::b()
 {
     return mB;
 }

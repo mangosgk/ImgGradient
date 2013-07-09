@@ -2,6 +2,11 @@
 #define RGBPIXEL_H
 
 /**
+ * @brief uint8 is another alias for unsigned char.
+ */
+typedef unsigned char uint8;
+
+/**
  * @brief The RGBPixel class represents a pixel data of an image.
  *        As the name suggests, the colorspace used by this class is RGB.
  * @author Mango
@@ -21,7 +26,7 @@ public: /* methods */
      * @param [in]  g   The G color component (0-255).
      * @param [in]  b   The B color component (0-255).
      */
-    RGBPixel( int r, int g, int b );
+    RGBPixel( uint8 r, uint8 g, uint8 b );
 
     /**
      * @brief Sets the R, G and B components of this object.
@@ -29,25 +34,25 @@ public: /* methods */
      * @param [in]  g   The G color component (0-255).
      * @param [in]  b   The B color component (0-255).
      */
-    void setRGB( int r, int g, int b );
+    void setRGB( uint8 r, uint8 g, uint8 b );
 
     /**
      * @brief Getter for the R color component (0-255).
      * @return
      */
-    int r();
+    uint8 r();
 
     /**
      * @brief Getter for the G color component (0-255).
      * @return
      */
-    int g();
+    uint8 g();
 
     /**
      * @brief Getter for the B color component (0-255).
      * @return
      */
-    int b();
+    uint8 b();
 
     /**
      * @brief Converts the RGB colorspace to HSV and returns only the "lightness" component.
@@ -65,17 +70,17 @@ private: /* member variables */
     /**
      * @brief The R (red) component.
      */
-    int mR;
+    uint8 mR;
 
     /**
      * @brief The G (green) component.
      */
-    int mG;
+    uint8 mG;
 
     /**
      * @brief The B (blue) component.
      */
-    int mB;
+    uint8 mB;
 };
 
 #endif // RGBPIXEL_H
