@@ -48,20 +48,26 @@ Dimana M adalah komponen RGB dengan nilai tertinggi dan m adalah komponen RGB de
 **Masukan**
 ![sample-input-1](http://imageshack.us/a/img833/3710/2xg.png)
 
+
 **Keluaran (pengurutan berdasarkan *value*)**
 ![sample-output-1](http://imageshack.us/a/img32/7527/0bp4.jpg)
+
 
 **Keluaran (pengurutan berdasarkan *lightness)**
 ![sample-output-1](http://img819.imageshack.us/img819/9420/utvf.jpg)    
 
 
+**Masukan**
 ![sample-input-2](http://imageshack.us/a/img208/4197/ku8e.jpg)
+
 
 **Keluaran (pengurutan berdasarkan *value*)**
 ![sample-output-2](http://imageshack.us/a/img20/1944/kw8x.jpg)
 
+
 **Keluaran (pengurutan berdasarkan *lightness)**
 ![sample-output-2](http://imageshack.us/a/img51/288/qj8a.jpg)    
+
 
 
 ## Kompilasi
