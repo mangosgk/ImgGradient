@@ -105,8 +105,12 @@ Kode sumber program dilisensikan berdasarkan lisensi BSD.
 
 ### Tautan
 [1] http://www.kaskus.co.id/thread/51cc06828327cf715b000002/bikin-program-c--plis-bantu-tugas-kuliah/
+
 [2] https://en.wikipedia.org/wiki/RGB
+
 [3] https://en.wikipedia.org/wiki/HSL_and_HSV
+
+
 [thread]: http://www.kaskus.co.id/thread/51cc06828327cf715b000002/bikin-program-c--plis-bantu-tugas-kuliah/
 [RGB-Colorspace]: https://en.wikipedia.org/wiki/RGB
 [HSL-and-HSV-Colorspaces]: https://en.wikipedia.org/wiki/HSL_and_HSV
