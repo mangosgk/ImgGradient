@@ -58,7 +58,7 @@ int main( int argc, char* argv[] )
     // "Radialize" pixels and save to jpg.
     // WARNING: Output file name is not checked at all. Extend if necessary.
     Image* rad = radialize( flatPixels, im->width(), im->height() );
-    //Image::toJPG( rad, argv[ 2 ] );
+    Image::toJPG( rad, argv[ 2 ] );
 
     // Free up used memory blocks.
     delete im;
