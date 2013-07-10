@@ -82,7 +82,7 @@ int main( int argc, char* argv[] )
 Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
 {
     // -------------------------------------------------------------------------------------------------
-    // Define the directions first. Basically radial the movement is:
+    // Define the directions first. Basically the radial movement is:
     //                           RIGHT -> DOWN -> LEFT -> UP -> repeat.
     //
     // We define the first direction is RIGHT and the movement step is 0, which will be incremented
@@ -154,7 +154,7 @@ Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
  *
  * Returns true if px1's lightness is less than px2's.
  * ------------------------------------------------------------------------------------------------- */
-bool lightnessSorter(RGBPixel* px1, RGBPixel* px2)
+bool lightnessSorter( RGBPixel* px1, RGBPixel* px2 )
 {
     return px1->lightness() < px2->lightness();
 }

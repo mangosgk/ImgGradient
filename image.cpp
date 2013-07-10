@@ -25,7 +25,7 @@ Image::Image( int width, int height ) :
  * @param [in]  width   Image width.
  * @param [in]  height  Image height.
  */
-Image::Image( uint8 *im, int width, int height ) :
+Image::Image( uint8* im, int width, int height ) :
     mData( new RGBPixelData ), mWidth( width ), mHeight( height )
 {
     int i = 0;

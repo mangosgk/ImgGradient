@@ -34,7 +34,7 @@ public: /* methods */
      * @param [in]  width   Image width.
      * @param [in]  height  Image height.
      */
-    Image( uint8 *im, int width, int height );
+    Image( uint8* im, int width, int height );
 
     /**
      * @brief Image constructor. Constructs an image with specified pixel data, width and height.
@@ -42,7 +42,7 @@ public: /* methods */
      * @param [in]  width   Image width.
      * @param [in]  height  Image height.
      */
-    Image( std::vector< RGBPixel* > *im, int width, int height );
+    Image( std::vector< RGBPixel* >* im, int width, int height );
 
     /* Destructor */
     ~Image();
@@ -65,7 +65,7 @@ public: /* methods */
      * @see Image::isInside()
      * @see Image::getPixel()
      */
-    bool setPixel( RGBPixel *px, int x, int y );
+    bool setPixel( RGBPixel* px, int x, int y );
 
     /**
      * @brief Returns the pixel data of a specific position in this image.
@@ -75,13 +75,13 @@ public: /* methods */
      * @see Image::isInside()
      * @see Image::setPixel()
      */
-    RGBPixel *getPixel( int x, int y );
+    RGBPixel* getPixel( int x, int y );
 
     /**
      * @brief Returns the 2D array of pixel data, which represents all pixels in this image.
      * @return The pixel data.
      */
-    RGBPixelData *data();
+    RGBPixelData* data();
 
     /**
      * @brief Returns the width of this image.
@@ -179,7 +179,7 @@ private: /* member variables */
     /**
      * @brief Image pixel data.
      */
-    RGBPixelData *mData;
+    RGBPixelData* mData;
 };
 
 #endif // IMAGE_H
