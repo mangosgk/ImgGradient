@@ -1,7 +1,7 @@
-ImgGradient
+ImgGradient {#mainpage}
 ===========
 
-Simple pixel sorting program.
+Simple pixel sorting program. English version of this document is not available. However, the comments in the source code are in english.
 
 
 ## Apa ini?
@@ -56,7 +56,7 @@ Dimana M adalah komponen RGB dengan nilai tertinggi dan m adalah komponen RGB de
 ![sample-output-1](http://imageshack.us/a/img32/7527/0bp4.jpg)
 
 
-**Keluaran (pengurutan berdasarkan *lightness)**
+**Keluaran (pengurutan berdasarkan *lightness*)**
 
 ![sample-output-1](http://img819.imageshack.us/img819/9420/utvf.jpg)    
 
@@ -71,10 +71,20 @@ Dimana M adalah komponen RGB dengan nilai tertinggi dan m adalah komponen RGB de
 ![sample-output-2](http://imageshack.us/a/img20/1944/kw8x.jpg)
 
 
-**Keluaran (pengurutan berdasarkan *lightness)**
+**Keluaran (pengurutan berdasarkan *lightness*)**
 
 ![sample-output-2](http://imageshack.us/a/img51/288/qj8a.jpg)    
 
+
+## Unduh
+
+Apabila menggunakan git (contoh pada Linux/Mac OS/MSYSGIT Git Bash):
+
+    $ git clone https://github.com/mangosgk/ImgGradient.git
+
+Atau unduh file zip dari tautan:
+
+https://github.com/mangosgk/ImgGradient/archive/master.zip
 
 
 ## Kompilasi
@@ -85,11 +95,11 @@ CMake mendukung berbagai macam *compiler* dan IDE.
 
 ### Windows
 
-Cara menggunakan CMake bisa dilihat disini: http://www.cmake.org/cmake/help/runningcmake.html . Setelah source code diunduh dan diekstrak.
+Cara menggunakan CMake bisa dilihat disini: http://www.cmake.org/cmake/help/runningcmake.html . Setelah kode sumber diunduh dan diekstrak.
 
 1. Jalankan program cmake (cmake harus diinstall terlebih dahulu).
 2. *"Where is the source code"* : masukkan direktori dimana source code telah diekstrak.
-3. *"Where to build the binaries"*: masukkan direktori dimana kode sumber telah diekstrak. Bubuhi "build/". Misal C:/foo/bar/build dimana C:/foo/bar/ adalah direktori kode sumber.
+3. *"Where to build the binaries"*: masukkan direktori dimana kode sumber telah diekstrak. Bubuhi "build/". Misal C:/foo/bar/build/ dimana C:/foo/bar/ adalah direktori kode sumber.
 4. Klik *Configure*.
 5. Pilih kompiler yang tersedia. Gunakan *default compiler* yang disarankan cmake.
 6. Klik *Configure* sekali lagi.
@@ -115,7 +125,7 @@ Program yang telah dikompilasi merupakan program konsol dan harus dijalankan mel
 
 Contoh pada windows (dijalankan pada direktori dimana hasil program yang telah dikompilasi berada):
 
-    ImgGradient data/cat.jpg data/cat-out.jpg lightness
+    .\ImgGradient.exe data\cat.jpg data\cat-out.jpg lightness
 
 Contoh pada linux (dijalankan pada direktori dimana hasil program yang telah dikompilasi berada):
 
@@ -128,11 +138,11 @@ Akan menghasilkan berkas keluaran cat-out.jpg dalam direktori *data*. Gambar kel
 
 Dokumentasi dapat dibuat dengan menggunakan [doxygen](http://www.stack.nl/~dimitri/doxygen/). Instalasi pada setiap sistem operasi berbeda, oleh karena itu ikuti petunjuk masing-masing sistem operasi. Apabila doxygen tersedia, dokumentasi dapat dibuat dengan mencentang pilihan BUILD_DOCS pada CMake atau pada linux:
 
-    cmake -DBUILD_DOCS=ON ..
+    $ cmake -DBUILD_DOCS=ON ..
 
 sebagai ganti dari 
 
-    cmake ..
+    $ cmake ..
 
 pada perintah kompilasi di linux.
 
