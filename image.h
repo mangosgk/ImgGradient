@@ -106,7 +106,9 @@ public: /* static methods */
     {
         int w, h, comp;
         uint8* out = jpgd::decompress_jpeg_image_from_file( filename, &w, &h, &comp, 3 );
-        return new Image( out, w, h );
+        Image* im = new Image( out, w, h );
+        free( out );
+        return im;
     }
 
     /**
@@ -135,7 +137,32 @@ public: /* static methods */
                 i += 3;
             }
         }
-        return jpge::compress_image_to_jpeg_file( filename, w, h, 3, in );
+        bool ok = jpge::compress_image_to_jpeg_file( filename, w, h, 3, in );
+        delete[] in;
+        return ok;
+    }
+
+    /**
+     * @brief Put each pixel data of an Image object into a 1D array of RGB pixel data.
+     *        Be warned though, that each RGBPixel pointer points to the RGBPixel
+     *        of the input Image object.
+     * @param [in]  im      Input image object.
+     * @return A 1D array of RGB pixel data.
+     */
+    static std::vector< RGBPixel* >* flatten( Image* im )
+    {
+        std::vector< RGBPixel* >* flatPixels = new std::vector< RGBPixel* >;
+        int h = im->height();
+        int w = im->width();
+        for( int y = 0 ; y < h ; y++ ) {
+            for( int x = 0 ; x < w ; x++ ) {
+                RGBPixel* px = im->getPixel( x, y );
+                if(px != 0) {
+                    flatPixels->push_back( px );
+                }
+            }
+        }
+        return flatPixels;
     }
 
 private: /* member variables */

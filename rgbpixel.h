@@ -1,6 +1,8 @@
 #ifndef RGBPIXEL_H
 #define RGBPIXEL_H
 
+#include <vector>
+
 /**
  * @brief uint8 is another alias for unsigned char.
  */

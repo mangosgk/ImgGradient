@@ -14,7 +14,6 @@
  * Forward declarations
  * ------------------------------------------------------------------------------------------------- */
 Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h );
-std::vector< RGBPixel* > *flatten( Image* im );
 bool lightnessSorter( RGBPixel* px1, RGBPixel* px2 );
 bool valueSorter( RGBPixel* px1, RGBPixel* px2 );
 
@@ -44,7 +43,7 @@ int main( int argc, char* argv[] )
     // "Flatten" pixels in 1-dimensional array and sort them based on lightness or value
     // Depending on the supplied last command line parameter.
     // Exit program if the parameter is not valid.
-    std::vector< RGBPixel* >* flatPixels = flatten( im );
+    std::vector< RGBPixel* >* flatPixels = Image::flatten( im );
     if( std::string( argv[ 3 ] ).compare( "lightness" ) )  {
         std::sort( flatPixels->begin(), flatPixels->end(), lightnessSorter );
     }
@@ -59,7 +58,7 @@ int main( int argc, char* argv[] )
     // "Radialize" pixels and save to jpg.
     // WARNING: Output file name is not checked at all. Extend if necessary.
     Image* rad = radialize( flatPixels, im->width(), im->height() );
-    Image::toJPG( rad, argv[ 2 ] );
+    //Image::toJPG( rad, argv[ 2 ] );
 
     // Free up used memory blocks.
     delete im;
@@ -128,7 +127,7 @@ Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
             // Do not color the pixel if this position is out of bounds.
             // Otherwise, remove the last pixel element from the list because we have
             // used this pixel data to color the pixel in position (x, y).
-            if( im->setPixel( pixels->back(), x, y ) ) {
+            if( pixels->size() && im->setPixel( pixels->back(), x, y ) ) {
                 pixels->pop_back();
             }
         }
@@ -147,30 +146,7 @@ Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
 }
 
 /* -------------------------------------------------------------------------------------------------
- * Put each pixel data of an Image object into a 1D array of RGB pixel data.
- *
- * [in] im      Input image object.
- *
- * Returns a 1D array of RGB pixel data.
- * ------------------------------------------------------------------------------------------------- */
-std::vector< RGBPixel* >* flatten( Image* im )
-{
-    std::vector< RGBPixel* >* flatPixels = new std::vector< RGBPixel* >();
-    for( int y = 0 ; y < im->height() ; y++ ) {
-        std::vector< RGBPixel* > row = im->data()->at( y );
-        for( int x = 0 ; x < im->width() ; x++ ) {
-            RGBPixel* orig = row.at( x );
-            RGBPixel* newPx = new RGBPixel(orig->r(),
-                                           orig->g(),
-                                           orig->b() );
-            flatPixels->push_back( newPx );
-        }
-    }
-    return flatPixels;
-}
-
-/* -------------------------------------------------------------------------------------------------
- * A comparation function to sort two RGBPixel objects by lightness component in HSL colorspace.
+ * A comparison function to sort two RGBPixel objects by lightness component in HSL colorspace.
  * This custom function is used by std::sort() function.
  *
  * [in] px1     First pixel.
@@ -184,7 +160,7 @@ bool lightnessSorter(RGBPixel* px1, RGBPixel* px2)
 }
 
 /* -------------------------------------------------------------------------------------------------
- * A comparation function to sort two RGBPixel objects by value component in HSV colorspace.
+ * A comparison function to sort two RGBPixel objects by value component in HSV colorspace.
  * This custom function is used by std::sort() function.
  *
  * [in] px1     First pixel.

@@ -58,7 +58,7 @@ Image::Image( std::vector< RGBPixel* >* im, int width, int height) :
     for( int y = 0 ; y < height ; y++ ) {
         mData->push_back( std::vector< RGBPixel* >() );
         for( int x = 0 ; x < width ; x++ ) {
-            setPixel( im->at( i ), x, y );
+            mData->at( y ).push_back( im->at( i ) );
             i++;
         }
     }
@@ -69,9 +69,8 @@ Image::~Image()
 {
     // Release memory used by each pixel in this image.
     for( int y = 0 ; y < mHeight ; y++ ) {
-        std::vector< RGBPixel* > row = mData->at( y );
         for( int x = 0 ; x < mWidth ; x++ ) {
-            RGBPixel* px = row.at( x );
+            RGBPixel* px = getPixel( x, y );
             if( px != 0 ) delete px;
         }
     }
@@ -103,9 +102,9 @@ bool Image::isInside( int x, int y )
  */
 bool Image::setPixel( RGBPixel* px, int x, int y )
 {
-    if( isInside( x, y ) ) {
-        // Get the specified pixel data from this image and set its RGB components.
-        RGBPixel* p = getPixel( x, y );
+    // Get the specified pixel data from this image and set its RGB components.
+    RGBPixel* p = getPixel( x, y );
+    if( p != 0 ) {
         p->setRGB( px->r(), px->g(), px->b() );
         return true;
     }
