@@ -45,10 +45,10 @@ int main( int argc, char* argv[] )
     // Depending on the supplied last command line parameter.
     // Exit program if the parameter is not valid.
     std::vector< RGBPixel* >* flatPixels = Image::flatten( im );
-    if( std::string( argv[ 3 ] ).compare( "lightness" ) )  {
+    if( std::string( argv[ 3 ] ).compare( "lightness" ) == 0 )  {
         std::sort( flatPixels->begin(), flatPixels->end(), lightnessSorter );
     }
-    else if( std::string( argv[ 3 ] ).compare( "value" ) ) {
+    else if( std::string( argv[ 3 ] ).compare( "value" ) == 0 ) {
         std::sort( flatPixels->begin(), flatPixels->end(), valueSorter );
     }
     else {
@@ -75,7 +75,7 @@ int main( int argc, char* argv[] )
 }
 
 /* -------------------------------------------------------------------------------------------------
- * Walk from the middle of the image to the right, bottom, left, up while coloring
+ * Walk from the start position of the image to the right, bottom, left, up while coloring
  * each pixel and repeats such movement step until all image pixels are colored.
  *
  * [in] pixels  Input pixel data, which is a 1D RGBPixel array.
@@ -177,4 +177,3 @@ bool valueSorter( RGBPixel* px1, RGBPixel* px2)
 {
     return px1->value() < px2->value();
 }
-

@@ -2,6 +2,7 @@
 #define RGBPIXEL_H
 
 #include <vector>
+#include <iostream>
 
 /**
  * @brief uint8 is another alias for unsigned char.
@@ -66,7 +67,7 @@ public: /* methods */
      * @brief Converts the RGB colorspace to HSV and returns only the "value" component.
      * @return The "value" component in HSV colorspace.
      */
-    double value();
+    uint8 value();
 
 private: /* member variables */
     /**

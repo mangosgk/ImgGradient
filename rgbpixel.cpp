@@ -41,12 +41,12 @@ double RGBPixel::lightness()
     // L = 1/2 * (M+m), whereas:
     // M = max(R, G, B) and
     // m = min(R, G, B)
-    int M = mR;
+    uint8 M = mR;
     if( mR >= mG && mR >= mB ) M = mR;
     if( mG >= mR && mG >= mB ) M = mG;
     if( mB >= mR && mB >= mG ) M = mB;
 
-    int m = mR;
+    uint8 m = mR;
     if( mR <= mG && mR <= mB ) m = mR;
     if( mG <= mR && mG <= mB ) m = mG;
     if( mB <= mR && mB <= mG ) m = mB;
@@ -59,11 +59,11 @@ double RGBPixel::lightness()
  * @brief Converts the RGB colorspace to HSV and returns only the "value" component.
  * @return The "value" component in HSV colorspace.
  */
-double RGBPixel::value()
+uint8 RGBPixel::value()
 {
     // V = M, whereas:
     // M = max(R, G, B)
-    int M = mR;
+    uint8 M = mR;
     if( mR >= mG && mR >= mB ) M = mR;
     if( mG >= mR && mG >= mB ) M = mG;
     if( mB >= mR && mB >= mG ) M = mB;
