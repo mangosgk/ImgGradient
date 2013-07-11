@@ -106,9 +106,14 @@ public: /* static methods */
     {
         int w, h, comp;
         uint8* out = jpgd::decompress_jpeg_image_from_file( filename, &w, &h, &comp, 3 );
-        Image* im = new Image( out, w, h );
-        free( out );
-        return im;
+        if ( out == 0 ) {
+            return 0;
+        }
+        else {
+            Image* im = new Image( out, w, h );
+            free( out );
+            return im;
+        }
     }
 
     /**

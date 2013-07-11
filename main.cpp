@@ -7,13 +7,12 @@
 #include <vector>
 #include <algorithm>
 #include <iostream>
-#include <cmath>
 #include "image.h"
 
 /* -------------------------------------------------------------------------------------------------
  * Forward declarations
  * ------------------------------------------------------------------------------------------------- */
-Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h );
+Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h, int x, int y );
 bool lightnessSorter( RGBPixel* px1, RGBPixel* px2 );
 bool valueSorter( RGBPixel* px1, RGBPixel* px2 );
 
@@ -36,9 +35,11 @@ int main( int argc, char* argv[] )
     }
 
     // Read the input jpg file into an Image object.
-    // WARNING: No runtime check whether the input file is a valid jpg file or not.
-    //          Extend this line if necessary.
     Image* im = Image::fromJPG( argv[ 1 ] );
+    if( im == 0 ) {
+        std::cout << "Cannot read JPG file. File exists? Valid JPG file?" << std::endl;
+        return 2;
+    }
 
     // "Flatten" pixels in 1-dimensional array and sort them based on lightness or value
     // Depending on the supplied last command line parameter.
@@ -52,12 +53,18 @@ int main( int argc, char* argv[] )
     }
     else {
         std::cout << "Unknown sorting parameter: " << argv[ 3 ] << std::endl;
+        std::cout << "Usage: " << argv[ 0 ] << " <input.jpg> <output.jpg> <lightness|value>" << std::endl;
         return 2;
     }
 
+    // Determine the start position (x, y) for the radialize function. In this case we want
+    // the start position to be in the middle of the canvas.
+    int x = 0.5 * ( im->width() - 1 );
+    int y = 0.5 * ( im->height() - 1 );
+
     // "Radialize" pixels and save to jpg.
     // WARNING: Output file name is not checked at all. Extend if necessary.
-    Image* rad = radialize( flatPixels, im->width(), im->height() );
+    Image* rad = radialize( flatPixels, im->width(), im->height(), x, y );
     Image::toJPG( rad, argv[ 2 ] );
 
     // Free up used memory blocks.
@@ -76,10 +83,12 @@ int main( int argc, char* argv[] )
  *              the size of this array should be image width * image height * 3.
  * [in] w       Image width.
  * [in] h       Image height.
+ * [in] x       Start position in x axis.
+ * [in] y       Start position in y axis.
  *
  * Returns a new image object.
  * ------------------------------------------------------------------------------------------------- */
-Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
+Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h, int x, int y )
 {
     // -------------------------------------------------------------------------------------------------
     // Define the directions first. Basically the radial movement is:
@@ -88,7 +97,7 @@ Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
     // We define the first direction is RIGHT and the movement step is 0, which will be incremented
     // AFTER each DOWN and UP steps.
     //
-    // Movement example (5 x 5) pixels:
+    // Movement example (5 x 5) pixels from the middle of canvas:
     //
     // Empty          0 step         1 step RIGHT   1 step DOWN    2 steps LEFT   2 steps UP     3 steps RIGHT
     // pixels         (step = 0)     (step = 1)     (step = 1)     (step = 2)     (step = 2)     (step = 3)
@@ -103,12 +112,8 @@ Image* radialize( std::vector< RGBPixel* >* pixels, int w, int h )
     directions dir = RIGHT;
     int steps = 0;
 
-    // Start position is in the middle of the canvas
+    // Create an empty canvas and color the first pixel with the first color in pixel std::vector.
     Image* im = new Image( w, h );
-    int x = (int) floor( w / 2.0 );
-    int y = (int) floor( h / 2.0 );
-
-    // Color the first pixel with the first color is pixel std::vector
     im->setPixel( pixels->back(), x, y );
     pixels->pop_back();
 
